@@ -1,0 +1,27 @@
+</br>
+<h1>Food for thought &nbsp;&nbsp;<%= link_to 'Ask a Question', new_article_path, class: 'btn btn-primary btn-large'%></h1> 
+
+</br>
+
+<div>
+
+
+	<% @articles.each do |article| %>
+		<h3><%=link_to article.questions, article_path(article) %></h3>
+		<p><%=article.category%>  |  Views: <%=article.views%>  |  Likes: <%= article.votes.size %>  |  <% if article.li == 1 %>
+		<%= link_to "unlike", dislike_article_path(article), method: :put %>
+	<% else %>
+		<%= link_to "like", like_article_path(article), method: :put %>
+	<% end %></p> 
+	<% end %>
+
+
+
+</div>
+
+<style>
+.span9 {
+	width: 1340px;}
+	.sidebar{ display:none;
+	}
+</style>

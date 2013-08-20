@@ -1,0 +1,9 @@
+hi
+
+<% form_for :article, :url => article_path(@article), :html => { :method => :delete } do |f| %>
+  <h2>Are you sure you want to delete this article?</h2>
+  <p>
+    <%= submit_tag "Destroy" %>
+    or <%= link_to "cancel", article_path %>
+  </p>
+<% end %>

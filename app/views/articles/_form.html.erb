@@ -1,0 +1,32 @@
+<%= form_for @article do |f| %>
+  <fieldset>
+    <div class="fields">
+      <%= f.label :questions %>
+      <%= f.text_field :questions, :rows => 6,:style => "width: 700px;" %>
+    </div>
+    <div class="fields">
+      <%= f.label :description %>
+      <%= f.text_area :description, :rows => 15, :style => "width: 700px;" %>
+    </div>
+    <div class="fields">
+      <%= f.label :category %>
+      <%= f.text_field :category %>
+    </div>
+  </fieldset>
+  </br>
+  <%= f.submit class: 'btn btn-primary btn-large' %>
+
+<% end %>
+
+
+
+<style>
+.btn-large {
+  padding: 20px 19px !important;
+  vertical-align: middle;
+  font-size: 18px !important;
+  height: 40px!important;
+  line-height: 0px!important;
+  padding-bottom: 20px !important;
+}
+</style>

@@ -1,0 +1,52 @@
+<section class='leftbody'>
+<h1><%= @article.questions %></h1>
+<h3> <%= @article.category %></h3>
+</br>
+<p> <%= @article.description %></p>
+<br></br>
+<br></br>
+
+<h3>Comments:</h3>
+
+<ul>
+  <% @article.comments.each do |comment| %>
+    <div><h6><%=comment.user.email%></h6>
+    <p> <%=comment.body%></p></div>
+  <% end %>
+</ul>
+</br>
+</br>
+<%= render 'comments/form' %>
+</section>
+
+<!-- Sidebar -->
+
+	<%= content_for(:sidebar) do %>
+  		<section class="sidebar">
+  			<div class = 'sidebar-content'>
+  				<h3>Additional Info</h3>
+				<h4>user &rarr; <%= @article.user.email if @article.user %></h4>
+				</br>
+				<div class="views"> views <p><%= @article.views %></p></div>
+				</br>
+				</br>
+  					<div class="btn btn-primary btn-large" ><% if @article.li == 1 %>
+						<%= link_to "Unlike", dislike_article_path(@article), method: :put %>
+					<% else %>
+					<%= link_to "like", like_article_path(@article), method: :put %>
+					<% end %></div>
+				<br></br>
+				<div class="likes"> likes &rarr; <%=@article.likes.size %></div>
+				<div class="likes"> popularity score &rarr; <%=@article.points/1000 %></div>
+				<br></br>
+				</br>
+				</br>
+
+			<%= link_to 'Edit Article', edit_article_path(@article)  %> &nbsp;| &nbsp;<%= link_to "Delete Article", article_path(@article),
+ :confirm =>"Are you sure?", :method => :delete %> </div>
+
+
+  			</div>
+   		</section>
+	<% end %> 
+

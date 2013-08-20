@@ -1,0 +1,12 @@
+
+<%= form_for([@article, @article.comments.build]) do |item| %>
+  <fieldset>
+    <div class="fields">
+      <%= item.label :body,'Add Comment' %>
+      <%= item.text_area :body, :rows => 10, :style => "width: 700px;" %>
+    </div>
+  </fieldset>
+</br>
+  <%= item.submit %>
+<% end %>
+
